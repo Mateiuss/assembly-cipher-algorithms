@@ -8,10 +8,12 @@ In acest fisier voi explica mai in detaliu implementarile din fisierele aferente
 
 ## points_distance.asm
 
+```c
 struct point{
     short x;
     short y; 
 };
+```
 
 * Pentru doua astfel puncte (ca in modelul de mai sus) am verificat mai intai valorile din x1 si x2. Daca acestea erau egale, calculam distanta dintre punctele y1 si y2, in caz contrar calculam distanta dintre x1 si x2.
 * Pentru a calcula modului distantei am verificat mai intai care dintre cele doua valori a caror distanta voiam sa o gasesc este mai mare si scadeam din valoarea mai mare pe cea mai mica.
@@ -34,6 +36,7 @@ struct point{
 ## spiral.asm
 * Pentru a putea rezolva acest ultim task, am pornit de la scheletul unui program in C care parcurge o matrice in spirala, pentru a avea o mai buna vizualizare a modalitatii de rezolvare (program pe care l-am adaptat la cerintele temei):
 
+```c
 while (k < m && l < n) {
     for (i = l; i < n; ++i) {
         printf("%d ", a[k][i]);
@@ -59,12 +62,15 @@ while (k < m && l < n) {
         l++;
     }
 }
+```
 
 * Inainte de a incepe, am copiat valorile din sirul plain in sirul enc_string. Ca urmare a acestui fapt, am putut sa folosesc registrul ebx ca sa salvez valoarea corespunzatoare lui 'm' din programul de mai sus (care totodata este egala cu n la inceput, avand o matrice patratica).
 * Registrii corespunzatori celorlalte variabile din programul de mai sus sunt:
 
+```asm
 eax = n
 ebx = m
 esi = k
 edi = l
 ecx = a
+```
